@@ -2,7 +2,7 @@
 
 
 while ($num1 -ne $num) {
-
+    [int]$num1= Read-Host "Escribe un número"
 
     if ($num1 -gt $num) {
         Write-Host "El número introducido es mayor"
