@@ -36,8 +36,10 @@ foreach ($emp in $empleados) {
 
     Set-Acl -Path C:\Empresa_users\"$nombreemp.$apellidoemp" -AclObject $acl
 
-    Set-ADUser -Identity "$nombreemp.$apellidoemp" -ScriptPath "$($emp.departamento).bat" -HomeDrive "Z:" -HomeDirectory "\\EMPRESA-DC1\Empresa_users$\$nombreemp.$apellidoemp"
 
 }
 
+foreach ($emp in $empleados) {
 
+    Set-ADUser -Identity "$($emp.nombre).$($emp.apellido)" -ScriptPath "carpeta$($emp.departamento).bat" -HomeDrive "Z:" -HomeDirectory "\\EMPRESA-DC1\Empresa_users$\$($emp.nombre).$($emp.apellido)"
+}
