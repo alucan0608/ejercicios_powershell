@@ -1,0 +1,1 @@
+﻿Start-Process Firefox:// | Get-WmiObject Win32_process -Filter 'name = "firefox.exe"' | foreach {$_.SetPriority(128)}
